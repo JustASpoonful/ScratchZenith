@@ -184,23 +184,24 @@
             display: flex;
             align-items: center;
             padding: 0 24px;
-            gap: 16px;
+            gap: 12px;
             border-bottom: 1px solid var(--border-color);
             background: linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
         }
 
         .btn-action {
-            padding: 10px 20px;
+            padding: 10px;
             border-radius: var(--radius-sm);
             font-size: 13px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
             border: none;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            min-width: 44px;
         }
 
         .btn-action::before {
@@ -243,11 +244,21 @@
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-secondary);
             border: 1px solid var(--border-color);
+            padding: 10px 16px;
         }
 
         .btn-ghost:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Icon-only button styling */
+        .btn-icon {
+            padding: 10px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #stage-wrapper {
@@ -645,20 +656,20 @@
         <div id="side-panels">
             <div class="panel-card fade-in" style="animation-delay: 0.1s">
                 <div id="stage-header">
-                    <button id="runBtn" class="btn-action btn-green">
-                        <i class="fas fa-play mr-2"></i> Run
+                    <button id="runBtn" class="btn-action btn-green" title="Run Project">
+                        <i class="fas fa-play"></i>
                     </button>
-                    <button id="stopBtn" class="btn-action btn-red">
-                        <i class="fas fa-stop mr-2"></i> Stop
+                    <button id="stopBtn" class="btn-action btn-red" title="Stop Execution">
+                        <i class="fas fa-stop"></i>
                     </button>
                     <div class="flex-1"></div>
                     <button id="addSpriteBtn" class="btn-action btn-ghost">
                         <i class="fas fa-plus mr-2"></i> Sprite
                     </button>
-                    <button id="undoBtn" class="btn-action btn-ghost" title="Undo">
+                    <button id="undoBtn" class="btn-action btn-ghost btn-icon" title="Undo">
                         <i class="fas fa-undo"></i>
                     </button>
-                    <button id="redoBtn" class="btn-action btn-ghost" title="Redo">
+                    <button id="redoBtn" class="btn-action btn-ghost btn-icon" title="Redo">
                         <i class="fas fa-redo"></i>
                     </button>
                 </div>
@@ -744,7 +755,7 @@
         <category name="Motion" colour="#4C97FF">
             <block type="motion_move"><value name="STEPS"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
             <block type="motion_turn"><field name="DIRECTION">RIGHT</field><value name="DEGREES"><shadow type="math_number"><field name="NUM">15</field></shadow></value></block>
-            <block type="motion_goto_xy"><value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="Y"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block>
+            <block type="motion_goto_xy"><value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="Y"><shadow type="math-number"><field name="NUM">0</field></shadow></value></block>
             <block type="motion_glideto_xy">
                 <value name="SECS"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
                 <value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value>
