@@ -584,6 +584,28 @@
             box-shadow: 0 0 10px var(--success);
             animation: pulse 2s infinite;
         }
+
+        /* Empty state styling */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-tertiary);
+            gap: 12px;
+        }
+
+        .empty-state i {
+            font-size: 24px;
+            opacity: 0.5;
+        }
+
+        .empty-state span {
+            font-size: 12px;
+            font-weight: 500;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body class="theme-midnight">
@@ -642,9 +664,9 @@
                 </div>
 
                 <div id="stage-wrapper">
-                    <div id="stage" class="selected-glow">
+                    <div id="stage">
                         <div id="stage-backdrop"></div>
-                        <!-- Sprites will be rendered here -->
+                        <!-- Sprites will be rendered here by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -655,40 +677,22 @@
                         <div class="status-indicator"></div>
                         <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Workspace</span>
                     </div>
-                    <span id="active-name" class="fade-in">Stage</span>
+                    <span id="active-name" class="fade-in">Loading...</span>
                 </div>
                 <div class="manager-body">
                     <div class="stage-selector" id="stage-thumb-container">
-                        <!-- Stage thumbnail -->
-                        <div class="sprite-thumb active">
-                            <i class="fas fa-globe text-xl text-indigo-400"></i>
-                            <span>Stage</span>
-                        </div>
+                        <!-- Stage thumbnail will be added by JavaScript -->
                     </div>
                     <div id="sprite-list" class="sprite-list-container">
-                        <!-- Sprite gallery will be populated here -->
-                        <div class="sprite-thumb">
-                            <i class="fas fa-cat text-xl text-purple-400"></i>
-                            <span>Cat</span>
-                        </div>
-                        <div class="sprite-thumb">
-                            <i class="fas fa-star text-xl text-yellow-400"></i>
-                            <span>Star</span>
-                        </div>
-                        <div class="sprite-thumb">
-                            <i class="fas fa-ghost text-xl text-blue-400"></i>
-                            <span>Ghost</span>
-                        </div>
-                        <div class="sprite-thumb">
-                            <i class="fas fa-plus text-lg text-slate-400 opacity-50"></i>
-                            <span class="opacity-50">Add New</span>
+                        <!-- Sprite gallery will be populated by JavaScript -->
+                        <div class="empty-state">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add a sprite to begin</span>
                         </div>
                     </div>
                 </div>
                 <div id="console" class="console-area">
-                    <div class="text-emerald-400">System: Scratch Zenith initialized</div>
-                    <div class="text-blue-400">Info: Ready to execute blocks</div>
-                    <div class="text-slate-500">> // Console output will appear here</div>
+                    <!-- Console output will be added by JavaScript -->
                 </div>
             </div>
         </div>
