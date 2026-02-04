@@ -11,53 +11,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="assets/scratchzenith.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
 
         :root {
-            --bg-base: #0a0a0f;
-            --bg-surface: rgba(20, 20, 30, 0.85);
-            --bg-element: rgba(40, 40, 60, 0.7);
-            --accent-primary: #6366f1;
-            --accent-secondary: #8b5cf6;
-            --accent-glow: rgba(99, 102, 241, 0.25);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0c0;
-            --text-tertiary: #707090;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --success: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-            --font-main: 'Inter', sans-serif;
+            --bg-base: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.7);
+            --bg-element: rgba(30, 41, 59, 0.8);
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --scratch-green: #10b981;
+            --scratch-red: #f43f5e;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --glass: blur(20px) saturate(180%);
-            --radius-lg: 20px;
-            --radius-md: 16px;
-            --radius-sm: 12px;
-            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --glass: blur(12px) saturate(180%);
         }
 
         body.theme-high-contrast {
             --bg-base: #000000;
-            --bg-surface: #1a1a1a;
-            --bg-element: #2a2a2a;
-            --accent-primary: #ffffff;
-            --accent-secondary: #cccccc;
+            --bg-surface: #111111;
+            --bg-element: #222222;
+            --accent: #ffffff;
             --text-primary: #ffffff;
-            --text-secondary: #cccccc;
+            --text-secondary: #aaaaaa;
             --border-color: #444444;
         }
 
         body.theme-classic {
             --bg-base: #f8fafc;
-            --bg-surface: rgba(255, 255, 255, 0.95);
-            --bg-element: rgba(241, 245, 249, 0.9);
-            --accent-primary: #4f46e5;
-            --accent-secondary: #7c3aed;
-            --text-primary: #1e293b;
+            --bg-surface: rgba(255, 255, 255, 0.8);
+            --bg-element: rgba(226, 232, 240, 0.8);
+            --accent: #4f46e5;
+            --text-primary: #0f172a;
             --text-secondary: #64748b;
-            --border-color: rgba(0, 0, 0, 0.08);
+            --border-color: rgba(0, 0, 0, 0.1);
         }
 
         body { 
@@ -70,74 +59,48 @@
             font-family: var(--font-main); 
             overflow: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
-        }
-
-        /* Smooth transitions */
-        * {
-            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.1) 0px, transparent 50%);
         }
 
         header {
-            height: 72px;
-            background: rgba(20, 20, 30, 0.9);
+            height: 64px;
+            background: var(--bg-surface);
             backdrop-filter: var(--glass);
-            -webkit-backdrop-filter: var(--glass);
             display: flex;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             justify-content: space-between;
             z-index: 100;
             border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             font-weight: 800;
-            letter-spacing: -0.02em;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: -0.04em;
+            font-size: 1.25rem;
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), #a855f7);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 32px var(--accent-glow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: translateX(-100%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            100% { transform: translateX(100%); }
+            box-shadow: 0 8px 20px var(--accent-glow);
         }
 
         #main-container {
             flex: 1;
             display: flex;
             overflow: hidden;
-            padding: 24px;
-            gap: 24px;
+            padding: 16px;
+            gap: 16px;
         }
 
         #blocklyArea {
@@ -145,151 +108,85 @@
             position: relative;
             background: var(--bg-surface);
             backdrop-filter: var(--glass);
-            -webkit-backdrop-filter: var(--glass);
-            border-radius: var(--radius-lg);
+            border-radius: 16px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
-
-        #blocklyDiv { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            bottom: 0; 
-            right: 0; 
-        }
+        #blocklyDiv { position: absolute; top: 0; left: 0; bottom: 0; right: 0; }
 
         #side-panels {
-            width: 440px;
+            width: 420px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
         }
 
         .panel-card {
             background: var(--bg-surface);
             backdrop-filter: var(--glass);
-            -webkit-backdrop-filter: var(--glass);
-            border-radius: var(--radius-lg);
+            border-radius: 16px;
             border: 1px solid var(--border-color);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 10px 25px -10px rgba(0,0,0,0.3);
         }
 
         #stage-header {
-            height: 64px;
+            height: 56px;
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 16px;
             gap: 12px;
             border-bottom: 1px solid var(--border-color);
-            background: linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+            background: rgba(255,255,255,0.03);
         }
 
         .btn-action {
-            padding: 10px;
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            min-width: 44px;
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
         }
 
-        .btn-action::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
+        .btn-action:hover { transform: translateY(-1px); filter: brightness(1.1); }
+        .btn-action:active { transform: translateY(0px); }
 
-        .btn-action:hover::before {
-            left: 100%;
-        }
-
-        .btn-action:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-action:active {
-            transform: translateY(0);
-        }
-
-        .btn-green { 
-            background: linear-gradient(135deg, var(--success), #34d399);
-            color: white;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-red { 
-            background: linear-gradient(135deg, var(--danger), #f87171);
-            color: white;
-            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
-        }
-
-        .btn-ghost { 
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Icon-only button styling */
-        .btn-icon {
-            padding: 10px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .btn-green { background: var(--scratch-green); color: white; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+        .btn-red { background: var(--scratch-red); color: white; box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3); }
+        .btn-ghost { background: var(--bg-element); color: var(--text-primary); border-color: var(--border-color); }
 
         #stage-wrapper {
-            padding: 32px;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 100%);
-            min-height: 320px;
+            background: rgba(0,0,0,0.2);
         }
 
         #stage {
-            width: 400px;
-            height: 300px;
+            width: 380px;
+            height: 285px;
             background: #000;
-            border-radius: var(--radius-md);
+            border-radius: 12px;
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            box-shadow: 
-                0 0 0 1px rgba(255, 255, 255, 0.05),
-                0 25px 60px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .manager-header {
-            padding: 18px 24px;
+            padding: 14px 20px;
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+            background: rgba(255,255,255,0.02);
         }
 
         .manager-body {
@@ -299,23 +196,23 @@
         }
 
         .stage-selector {
-            width: 100px;
+            width: 90px;
             border-right: 1px solid var(--border-color);
-            padding: 20px 12px;
+            padding: 12px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 10px;
             align-items: center;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0,0,0,0.15);
         }
 
         .sprite-list-container {
             flex: 1;
-            padding: 20px;
+            padding: 16px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
             grid-auto-rows: min-content;
-            gap: 16px;
+            gap: 12px;
             overflow-y: auto;
         }
 
@@ -323,50 +220,34 @@
             aspect-ratio: 1;
             background: var(--bg-element);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transition: all 0.2s ease;
             position: relative;
-            overflow: hidden;
-        }
-
-        .sprite-thumb::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .sprite-thumb:hover::before {
-            opacity: 1;
         }
 
         .sprite-thumb:hover {
-            border-color: var(--accent-primary);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.1);
         }
 
         .sprite-thumb.active {
-            border-color: var(--accent-primary);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1));
-            box-shadow: 
-                0 0 20px var(--accent-glow),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: scale(1.05);
+            border-color: var(--accent);
+            background: var(--accent-glow);
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: scale(1.02);
         }
 
         .sprite-thumb span {
-            font-size: 11px;
-            margin-top: 8px;
+            font-size: 10px;
+            margin-top: 6px;
             color: var(--text-secondary);
-            font-weight: 600;
-            max-width: 70px;
+            font-weight: 700;
+            max-width: 60px;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
@@ -374,103 +255,47 @@
         }
 
         .console-area {
-            height: 160px;
-            background: rgba(10, 10, 15, 0.9);
-            color: var(--success);
+            height: 140px;
+            background: rgba(2, 6, 23, 0.8);
+            color: #10b981;
             font-family: var(--font-mono);
-            font-size: 12px;
-            padding: 20px;
+            font-size: 11px;
+            padding: 16px;
             overflow-y: auto;
             border-top: 1px solid var(--border-color);
-            line-height: 1.6;
-        }
-
-        .console-area::-webkit-scrollbar {
-            width: 8px;
         }
 
         .theme-switcher {
             display: flex;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 6px;
-            border-radius: var(--radius-sm);
-            gap: 4px;
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-        }
-
-        .theme-pill {
-            padding: 8px 16px;
+            background: var(--bg-element);
+            padding: 4px;
             border-radius: 10px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .theme-pill:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .theme-pill.active {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            box-shadow: 0 4px 15px var(--accent-glow);
-        }
-
-        /* Enhanced header buttons */
-        header button {
-            padding: 10px 20px;
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            gap: 2px;
             border: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.05);
+        }
+        .theme-pill {
+            padding: 6px 14px;
+            border-radius: 7px;
+            font-size: 11px;
+            font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
+        }
+        .theme-pill.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 10px var(--accent-glow);
         }
 
-        header button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* Blockly customizations */
+        /* Blockly Overrides */
         .blocklyMainBackground { stroke: none !important; fill: transparent !important; }
-        .blocklyToolboxDiv { 
-            background-color: rgba(20, 20, 30, 0.9) !important; 
-            border-right: 1px solid var(--border-color) !important; 
-            padding: 20px 0 !important;
-            backdrop-filter: var(--glass);
-        }
-        .blocklyFlyoutBackground { 
-            fill: var(--bg-surface) !important; 
-            fill-opacity: 0.95 !important;
-            backdrop-filter: var(--glass);
-        }
-        .blocklyTreeLabel { 
-            font-family: var(--font-main) !important; 
-            font-weight: 500 !important; 
-            font-size: 14px !important; 
-            color: var(--text-secondary) !important;
-            padding: 8px 16px !important;
-        }
-        .blocklyTreeRow.blocklyTreeSelected { 
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)) !important;
-        }
-        .blocklyTreeRow.blocklyTreeSelected .blocklyTreeLabel { 
-            color: white !important; 
-            font-weight: 600 !important;
-        }
-
-        /* Remove toolbox scrollbars */
+        .blocklyToolboxDiv { background-color: transparent !important; border-right: 1px solid var(--border-color) !important; padding: 10px 0; }
+        .blocklyFlyoutBackground { fill: var(--bg-surface) !important; fill-opacity: 0.95 !important; }
+        .blocklyTreeLabel { font-family: var(--font-main) !important; font-weight: 600 !important; font-size: 13px !important; color: var(--text-secondary) !important; }
+        .blocklyTreeRow.blocklyTreeSelected .blocklyTreeLabel { color: var(--text-primary) !important; }
+        
+        /* HIDE TOOLBOX SCROLLBAR */
         .blocklyToolboxDiv .blocklyScrollbarHorizontal,
         .blocklyToolboxDiv .blocklyScrollbarVertical {
             display: none !important;
@@ -489,21 +314,16 @@
             position: absolute; 
             z-index: 20; 
             cursor: grab; 
-            transition: transform 0.15s ease-out;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+            transition: transform 0.1s ease-out;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
         }
-
-        .sprite-entity:active { 
-            cursor: grabbing; 
-            filter: drop-shadow(0 12px 24px rgba(0,0,0,0.8));
-        }
-
+        .sprite-entity:active { cursor: grabbing; }
         .sprite-entity.active::after {
             content: '';
             position: absolute;
-            inset: -6px;
-            border: 2px solid var(--accent-primary);
-            border-radius: 12px;
+            inset: -4px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
             animation: pulse 2s infinite;
         }
 
@@ -513,163 +333,64 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Enhanced scrollbar */
-        ::-webkit-scrollbar { 
-            width: 10px; 
-            height: 10px; 
-        }
-        ::-webkit-scrollbar-track { 
-            background: rgba(255, 255, 255, 0.05); 
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb { 
-            background: var(--bg-element); 
-            border-radius: 10px; 
-            border: 2px solid transparent;
-            background-clip: padding-box;
-        }
-        ::-webkit-scrollbar-thumb:hover { 
-            background: var(--text-tertiary); 
-        }
-
-        /* Mod panel enhancements */
-        #modPanel {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        #modPanel > div {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Active sprite indicator */
-        #active-name {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px var(--accent-glow);
-        }
-
-        /* Selection glow effect */
-        .selected-glow {
-            box-shadow: 
-                0 0 30px var(--accent-glow),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        /* Subtle hover effects */
-        .hover-lift:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Loading animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Status indicator */
-        .status-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--success);
-            box-shadow: 0 0 10px var(--success);
-            animation: pulse 2s infinite;
-        }
-
-        /* Empty state styling */
-        .empty-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: var(--text-tertiary);
-            gap: 12px;
-        }
-
-        .empty-state i {
-            font-size: 24px;
-            opacity: 0.5;
-        }
-
-        .empty-state span {
-            font-size: 12px;
-            font-weight: 500;
-            opacity: 0.7;
-        }
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--bg-element); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
     </style>
 </head>
 <body class="theme-midnight">
 
     <header>
         <div class="logo-container">
-            <div class="logo-icon"><i class="fas fa-sparkles text-white text-sm"></i></div>
-            <span>SCRATCH <span class="gradient-text">ZENITH</span></span>
+            <div class="logo-icon"><i class="fas fa-bolt-lightning text-white text-sm"></i></div>
+            <span class="tracking-tight">SCRATCH <span class="text-indigo-400 font-black">ZENITH</span></span>
         </div>
         
-        <div class="flex items-center gap-12">
+        <div class="flex items-center gap-8">
             <div class="theme-switcher">
                 <div onclick="setTheme('classic')" class="theme-pill" id="pill-classic">Classic</div>
                 <div onclick="setTheme('midnight')" class="theme-pill active" id="pill-midnight">Midnight</div>
                 <div onclick="setTheme('high-contrast')" class="theme-pill" id="pill-high-contrast">Focus</div>
             </div>
-            <button id="openModBtn" class="hover-lift">
-                <i class="fas fa-code mr-2"></i>Console
+            <button id="openModBtn" class="bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 px-3 py-2 rounded-lg transition-all border border-indigo-500/20">
+                <i class="fas fa-code"></i>
             </button>
-            <button id="saveBtn" class="hover-lift">
-                <i class="fas fa-save mr-2"></i>Save
+            <button id="saveBtn" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 px-3 py-2 rounded-lg transition-all border border-emerald-500/20" title="Save Project">
+                <i class="fas fa-save"></i>
             </button>
-            <button id="loadBtn" class="hover-lift">
-                <i class="fas fa-folder-open mr-2"></i>Load
+            <button id="loadBtn" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 px-3 py-2 rounded-lg transition-all border border-amber-500/20" title="Load Project">
+                <i class="fas fa-folder-open"></i>
             </button>
-            <button id="demoBtn" class="hover-lift">
-                <i class="fas fa-gamepad mr-2"></i>Demo
+            <button id="demoBtn" class="bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 px-3 py-2 rounded-lg transition-all border border-purple-500/20" title="Controller Demo">
+                <i class="fas fa-gamepad"></i>
             </button>
         </div>
     </header>
 
     <div id="main-container">
-        <div id="blocklyArea" class="fade-in">
+        <div id="blocklyArea">
             <div id="blocklyDiv"></div>
         </div>
 
         <div id="side-panels">
-            <div class="panel-card fade-in" style="animation-delay: 0.1s">
+            <div class="panel-card">
                 <div id="stage-header">
-                    <button id="runBtn" class="btn-action btn-green" title="Run Project">
-                        <i class="fas fa-play"></i>
+                    <button id="runBtn" class="btn-action btn-green">
+                        <i class="fas fa-flag"></i> Run Project
                     </button>
-                    <button id="stopBtn" class="btn-action btn-red" title="Stop Execution">
-                        <i class="fas fa-stop"></i>
+                    <button id="stopBtn" class="btn-action btn-red">
+                        <i class="fas fa-stop"></i> Stop
                     </button>
                     <div class="flex-1"></div>
                     <button id="addSpriteBtn" class="btn-action btn-ghost">
-                        <i class="fas fa-plus mr-2"></i> Sprite
+                        <i class="fas fa-plus"></i> New Sprite
                     </button>
-                    <button id="undoBtn" class="btn-action btn-ghost btn-icon" title="Undo">
+                    <button id="undoBtn" class="btn-action btn-ghost" title="Undo">
                         <i class="fas fa-undo"></i>
                     </button>
-                    <button id="redoBtn" class="btn-action btn-ghost btn-icon" title="Redo">
+                    <button id="redoBtn" class="btn-action btn-ghost" title="Redo">
                         <i class="fas fa-redo"></i>
                     </button>
                 </div>
@@ -677,134 +398,185 @@
                 <div id="stage-wrapper">
                     <div id="stage">
                         <div id="stage-backdrop"></div>
-                        <!-- Sprites will be rendered here by JavaScript -->
                     </div>
                 </div>
             </div>
 
-            <div class="panel-card flex-1 fade-in" id="sprite-manager" style="animation-delay: 0.2s">
+            <div class="panel-card flex-1" id="sprite-manager">
                 <div class="manager-header">
-                    <div class="flex items-center gap-3">
-                        <div class="status-indicator"></div>
-                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Workspace</span>
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></div>
+                        <span class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest">Workspace</span>
                     </div>
-                    <span id="active-name" class="fade-in">Loading...</span>
+                    <span id="active-name" class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/10">Loading...</span>
                 </div>
                 <div class="manager-body">
                     <div class="stage-selector" id="stage-thumb-container">
-                        <!-- Stage thumbnail will be added by JavaScript -->
+                        <!-- Stage Thumb -->
                     </div>
                     <div id="sprite-list" class="sprite-list-container">
-                        <!-- Sprite gallery will be populated by JavaScript -->
-                        <div class="empty-state">
-                            <i class="fas fa-plus-circle"></i>
-                            <span>Add a sprite to begin</span>
-                        </div>
+                        <!-- Sprite Gallery -->
                     </div>
                 </div>
-                <div id="console" class="console-area">
-                    <!-- Console output will be added by JavaScript -->
-                </div>
+                <div id="console" class="console-area"></div>
             </div>
         </div>
     </div>
 
     <!-- Mod Panel -->
-    <div id="modPanel" class="fixed inset-0 z-[200] hidden items-center justify-center p-6">
-        <div class="rounded-3xl w-full max-w-2xl overflow-hidden">
-            <div class="p-8 border-b border-white/10 flex justify-between items-center">
+    <div id="modPanel" class="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-[200] hidden items-center justify-center p-6">
+        <div class="bg-slate-900 rounded-3xl w-full max-w-xl border border-white/10 shadow-2xl overflow-hidden">
+            <div class="p-8 border-b border-white/5 flex justify-between items-center bg-white/2">
                 <div>
-                    <h2 class="font-bold text-white text-2xl mb-2">Kernel Console</h2>
-                    <p class="text-slate-400">Direct runtime modification interface</p>
+                    <h2 class="font-extrabold text-white text-xl">JS Kernel Injection</h2>
+                    <p class="text-slate-400 text-sm">Direct runtime modification</p>
                 </div>
-                <button id="closeModBtn" class="w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all flex items-center justify-center">
-                    <i class="fas fa-times"></i>
-                </button>
+                <button id="closeModBtn" class="bg-white/5 hover:bg-white/10 w-10 h-10 rounded-full text-slate-400 hover:text-white transition-all"><i class="fas fa-times"></i></button>
             </div>
             <div class="p-8 space-y-6">
-                <textarea id="modInput" class="w-full h-72 bg-black/40 p-6 rounded-2xl border border-white/10 font-mono text-sm text-indigo-300 focus:outline-none focus:border-indigo-500/50 transition-all resize-none" placeholder="// Input JavaScript code here...
-// Example: console.log('Hello from kernel')"></textarea>
-                <div class="flex gap-4">
-                    <button id="loadModBtn" class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white py-4 rounded-2xl font-bold transition-all shadow-xl hover:shadow-2xl active:scale-95">
-                        <i class="fas fa-bolt mr-2"></i> Inject Code
-                    </button>
-                    <button id="clearModBtn" class="bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-2xl font-bold transition-all border border-white/10">
-                        Clear
-                    </button>
+                <textarea id="modInput" class="w-full h-64 bg-black/40 p-5 rounded-2xl border border-white/10 font-mono text-sm text-indigo-300 focus:outline-none focus:border-indigo-500/50 transition-all resize-none" placeholder="// Input runtime JS code here..."></textarea>
+                <div class="flex gap-3">
+                    <button id="loadModBtn" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-4 rounded-2xl font-bold transition-all shadow-xl shadow-indigo-600/20 active:scale-95">Inject to Kernel</button>
+                    <button id="clearModBtn" class="bg-slate-700 hover:bg-slate-600 text-white px-6 py-4 rounded-2xl font-bold transition-all">Clear</button>
                 </div>
-                <div class="text-sm text-slate-400 font-mono flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-                    Safe mode enabled • Kernel version 2.0 • Sandbox environment
+                <div class="text-xs text-slate-400 font-mono">
+                    <i class="fas fa-info-circle mr-2"></i> Safe mode: No direct eval, limited scope
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Toolbox XML remains exactly the same -->
     <xml id="toolbox" style="display: none">
-        <category name="Events" colour="#FFBF00">
-            <block type="event_whenflagclicked"></block>
-            <block type="event_whenbroadcastreceived"><field name="MESSAGE">message1</field></block>
-            <block type="event_broadcast">
-                <value name="MESSAGE"><shadow type="text"><field name="TEXT">message1</field></shadow></value>
-            </block>
-            <block type="event_broadcastandwait">
-                <value name="MESSAGE"><shadow type="text"><field name="TEXT">message1</field></shadow></value>
-            </block>
-        </category>
         <category name="Motion" colour="#4C97FF">
             <block type="motion_move"><value name="STEPS"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
-            <block type="motion_turn"><field name="DIRECTION">RIGHT</field><value name="DEGREES"><shadow type="math_number"><field name="NUM">15</field></shadow></value></block>
-            <block type="motion_goto_xy"><value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="Y"><shadow type="math-number"><field name="NUM">0</field></shadow></value></block>
+            <block type="motion_turnright"><value name="DEGREES"><shadow type="math_number"><field name="NUM">15</field></shadow></value></block>
+            <block type="motion_turnleft"><value name="DEGREES"><shadow type="math_number"><field name="NUM">15</field></shadow></value></block>
+            <block type="motion_goto_xy"><value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="Y"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block>
+            <block type="motion_goto_random"></block>
             <block type="motion_glideto_xy">
                 <value name="SECS"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
                 <value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value>
                 <value name="Y"><shadow type="math_number"><field name="NUM">0</field></shadow></value>
             </block>
+            <block type="motion_glideto_random"><value name="SECS"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>
+            <block type="motion_pointindirection"><value name="DIRECTION"><shadow type="math_number"><field name="NUM">90</field></shadow></value></block>
+            <block type="motion_pointtowards"><value name="TOWARDS"><shadow type="text"><field name="TEXT">mouse</field></shadow></value></block>
+            <block type="motion_changex"><value name="DX"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
+            <block type="motion_setx"><value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block>
+            <block type="motion_changey"><value name="DY"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
+            <block type="motion_sety"><value name="Y"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block>
+            <block type="motion_ifonedgebounce"></block>
+            <block type="motion_setrotationstyle"></block>
+            <block type="motion_xposition"></block>
+            <block type="motion_yposition"></block>
+            <block type="motion_direction"></block>
         </category>
+        
         <category name="Looks" colour="#9966FF">
             <block type="looks_say"><value name="MESSAGE"><shadow type="text"><field name="TEXT">Hello!</field></shadow></value></block>
             <block type="looks_sayforsecs">
                 <value name="MESSAGE"><shadow type="text"><field name="TEXT">Hello!</field></shadow></value>
                 <value name="SECS"><shadow type="math_number"><field name="NUM">2</field></shadow></value>
             </block>
-            <block type="looks_switchcostume">
-                <value name="COSTUME"><shadow type="text"><field name="TEXT">star</field></shadow></value>
+            <block type="looks_think"><value name="MESSAGE"><shadow type="text"><field name="TEXT">Hmm...</field></shadow></value></block>
+            <block type="looks_thinkforsecs">
+                <value name="MESSAGE"><shadow type="text"><field name="TEXT">Hmm...</field></shadow></value>
+                <value name="SECS"><shadow type="math_number"><field name="NUM">2</field></shadow></value>
             </block>
+            <block type="looks_switchcostume"><value name="COSTUME"><shadow type="text"><field name="TEXT">star</field></shadow></value></block>
+            <block type="looks_nextcostume"></block>
+            <block type="looks_changeeffect"><field name="EFFECT">COLOR</field><value name="CHANGE"><shadow type="math_number"><field name="NUM">25</field></shadow></value></block>
+            <block type="looks_seteffect"><field name="EFFECT">COLOR</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block>
+            <block type="looks_cleareffects"></block>
+            <block type="looks_changesize"><value name="CHANGE"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
+            <block type="looks_setsize"><value name="SIZE"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block>
+            <block type="looks_show"></block>
+            <block type="looks_hide"></block>
+            <block type="looks_gotofrontback"></block>
+            <block type="looks_goforwardbackwardlayers"><value name="NUM"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>
+            <block type="looks_costumenumber"></block>
+            <block type="looks_costumenameat"></block>
+            <block type="looks_size"></block>
         </category>
-        <category name="Stage" colour="#059669">
-            <block type="stage_switchbackdrop">
-                <value name="BACKDROP"><shadow type="text"><field name="TEXT">Deep Space</field></shadow></value>
-            </block>
-            <block type="stage_nextbackdrop"></block>
+        
+        <category name="Sound" colour="#D65CD6">
+            <block type="sound_play"><value name="SOUND"><shadow type="text"><field name="TEXT">pop</field></shadow></value></block>
+            <block type="sound_playuntildone"><value name="SOUND"><shadow type="text"><field name="TEXT">pop</field></shadow></value></block>
+            <block type="sound_stopallsounds"></block>
+            <block type="sound_changevolume"><value name="VOLUME"><shadow type="math_number"><field name="NUM">-10</field></shadow></value></block>
+            <block type="sound_setvolume"><value name="VOLUME"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block>
+            <block type="sound_volume"></block>
         </category>
+        
+        <category name="Events" colour="#FFBF00">
+            <block type="event_whenflagclicked"></block>
+            <block type="event_whenkeypressed"><field name="KEY">space</field></block>
+            <block type="event_whenthisspriteclicked"></block>
+            <block type="event_whenbackdropswitches"><field name="BACKDROP">backdrop1</field></block>
+            <block type="event_whengreaterthan"><field name="WHENGREATERTHANMENU">LOUDNESS</field><value name="VALUE"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
+            <block type="event_whenbroadcastreceived"><field name="MESSAGE">message1</field></block>
+            <block type="event_broadcast"><value name="MESSAGE"><shadow type="text"><field name="TEXT">message1</field></shadow></value></block>
+            <block type="event_broadcastandwait"><value name="MESSAGE"><shadow type="text"><field name="TEXT">message1</field></shadow></value></block>
+        </category>
+        
         <category name="Control" colour="#FFAB19">
             <block type="control_wait"><value name="DURATION"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block>
             <block type="controls_repeat_ext"><value name="TIMES"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
             <block type="control_forever"></block>
             <block type="controls_if"></block>
+            <block type="controls_if_else"></block>
+            <block type="control_wait_until"></block>
+            <block type="control_repeat_until"></block>
+            <block type="control_stop"></block>
+            <block type="control_start_as_clone"></block>
+            <block type="control_create_clone"><value name="CLONE_OPTION"><shadow type="text"><field name="TEXT">myself</field></shadow></value></block>
+            <block type="control_delete_this_clone"></block>
         </category>
+        
+        <category name="Sensing" colour="#4CBFE6">
+            <block type="sensing_touchingobject"><value name="TOUCHINGOBJECTMENU"><shadow type="text"><field name="TEXT">mouse</field></shadow></value></block>
+            <block type="sensing_touchingcolor"><value name="COLOR"><shadow type="colour_picker"><field name="COLOUR">#0000ff</field></shadow></value></block>
+            <block type="sensing_distanceto"><value name="DISTANCETOMENU"><shadow type="text"><field name="TEXT">mouse</field></shadow></value></block>
+            <block type="sensing_askandwait"><value name="QUESTION"><shadow type="text"><field name="TEXT">What's your name?</field></shadow></value></block>
+            <block type="sensing_answer"></block>
+            <block type="sensing_keypressed"><value name="KEY_OPTION"><shadow type="text"><field name="TEXT">space</field></shadow></value></block>
+            <block type="sensing_mousedown"></block>
+            <block type="sensing_mousex"></block>
+            <block type="sensing_mousey"></block>
+            <block type="sensing_loudness"></block>
+            <block type="sensing_timer"></block>
+            <block type="sensing_resettimer"></block>
+            <block type="sensing_of"><field name="PROPERTY">x position</field><value name="OBJECT"><shadow type="text"><field name="TEXT">Sprite1</field></shadow></value></block>
+            <block type="sensing_current"><field name="CURRENTMENU">YEAR</field></block>
+            <block type="sensing_dayssince2000"></block>
+            <block type="sensing_username"></block>
+        </category>
+        
+        <category name="Operators" colour="#40BF4A">
+            <block type="operator_add"><value name="NUM1"><shadow type="math_number"><field name="NUM"></field></shadow></value><value name="NUM2"><shadow type="math_number"><field name="NUM"></field></shadow></value></block>
+            <block type="operator_subtract"><value name="NUM1"><shadow type="math_number"><field name="NUM"></field></shadow></value><value name="NUM2"><shadow type="math_number"><field name="NUM"></field></shadow></value></block>
+            <block type="operator_multiply"><value name="NUM1"><shadow type="math_number"><field name="NUM"></field></shadow></value><value name="NUM2"><shadow type="math_number"><field name="NUM"></field></shadow></value></block>
+            <block type="operator_divide"><value name="NUM1"><shadow type="math_number"><field name="NUM"></field></shadow></value><value name="NUM2"><shadow type="math_number"><field name="NUM"></field></shadow></value></block>
+            <block type="operator_random"><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
+            <block type="operator_gt"><value name="OPERAND1"><shadow type="text"><field name="TEXT"></field></shadow></value><value name="OPERAND2"><shadow type="text"><field name="TEXT">50</field></shadow></value></block>
+            <block type="operator_lt"><value name="OPERAND1"><shadow type="text"><field name="TEXT"></field></shadow></value><value name="OPERAND2"><shadow type="text"><field name="TEXT">50</field></shadow></value></block>
+            <block type="operator_equals"><value name="OPERAND1"><shadow type="text"><field name="TEXT"></field></shadow></value><value name="OPERAND2"><shadow type="text"><field name="TEXT">50</field></shadow></value></block>
+            <block type="operator_and"></block>
+            <block type="operator_or"></block>
+            <block type="operator_not"></block>
+            <block type="operator_join"><value name="STRING1"><shadow type="text"><field name="TEXT">hello </field></shadow></value><value name="STRING2"><shadow type="text"><field name="TEXT">world</field></shadow></value></block>
+            <block type="operator_letter_of"><value name="LETTER"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="STRING"><shadow type="text"><field name="TEXT">world</field></shadow></value></block>
+            <block type="operator_length"><value name="STRING"><shadow type="text"><field name="TEXT">world</field></shadow></value></block>
+            <block type="operator_contains"><value name="STRING1"><shadow type="text"><field name="TEXT">hello</field></shadow></value><value name="STRING2"><shadow type="text"><field name="TEXT">h</field></shadow></value></block>
+            <block type="operator_mod"><value name="NUM1"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="NUM2"><shadow type="math_number"><field name="NUM">3</field></shadow></value></block>
+            <block type="operator_round"><value name="NUM"><shadow type="math_number"><field name="NUM">3.14</field></shadow></value></block>
+            <block type="operator_mathop"><field name="OPERATOR">abs</field><value name="NUM"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block>
+        </category>
+        
         <category name="Variables" colour="#FF8C1A" custom="VARIABLE"></category>
-        <category name="Controller" colour="#DC2626">
-            <block type="controller_whenkeypressed">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">space</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="controller_keypressed">
-                <value name="KEY">
-                    <shadow type="text">
-                        <field name="TEXT">space</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="controller_mousex"></block>
-            <block type="controller_mousey"></block>
-            <block type="controller_mousedown"></block>
-        </category>
+        <category name="My Blocks" colour="#FF6680" custom="PROCEDURE"></category>
     </xml>
+
     <script>
                 class ProjectState {
             constructor() {
@@ -1380,6 +1152,891 @@ Blockly.Blocks['motion_turn'] = {
                 this.setNextStatement(true); 
                 this.setColour("#059669"); 
             } 
+        };
+
+        // NEW MOTION BLOCKS
+        Blockly.Blocks['motion_turnright'] = {
+            init: function() {
+                this.appendValueInput("DEGREES").setCheck("Number").appendField("turn ↻");
+                this.appendDummyInput().appendField("degrees");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_turnleft'] = {
+            init: function() {
+                this.appendValueInput("DEGREES").setCheck("Number").appendField("turn ↺");
+                this.appendDummyInput().appendField("degrees");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_goto_random'] = {
+            init: function() {
+                this.appendDummyInput().appendField("go to random position");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_glideto_random'] = {
+            init: function() {
+                this.appendDummyInput().appendField("glide");
+                this.appendValueInput("SECS").setCheck("Number");
+                this.appendDummyInput().appendField("secs to random position");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_pointindirection'] = {
+            init: function() {
+                this.appendDummyInput().appendField("point in direction");
+                this.appendValueInput("DIRECTION").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_pointtowards'] = {
+            init: function() {
+                this.appendDummyInput().appendField("point towards");
+                this.appendValueInput("TOWARDS");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_changex'] = {
+            init: function() {
+                this.appendDummyInput().appendField("change x by");
+                this.appendValueInput("DX").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_setx'] = {
+            init: function() {
+                this.appendDummyInput().appendField("set x to");
+                this.appendValueInput("X").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_changey'] = {
+            init: function() {
+                this.appendDummyInput().appendField("change y by");
+                this.appendValueInput("DY").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_sety'] = {
+            init: function() {
+                this.appendDummyInput().appendField("set y to");
+                this.appendValueInput("Y").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_ifonedgebounce'] = {
+            init: function() {
+                this.appendDummyInput().appendField("if on edge, bounce");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_setrotationstyle'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("set rotation style")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["left-right", "left-right"],
+                        ["don't rotate", "dont rotate"],
+                        ["all around", "all around"]
+                    ]), "STYLE");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_xposition'] = {
+            init: function() {
+                this.appendDummyInput().appendField("x position");
+                this.setOutput(true, "Number");
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_yposition'] = {
+            init: function() {
+                this.appendDummyInput().appendField("y position");
+                this.setOutput(true, "Number");
+                this.setColour("#4C97FF");
+            }
+        };
+        
+        Blockly.Blocks['motion_direction'] = {
+            init: function() {
+                this.appendDummyInput().appendField("direction");
+                this.setOutput(true, "Number");
+                this.setColour("#4C97FF");
+            }
+        };
+
+        // NEW LOOKS BLOCKS
+        Blockly.Blocks['looks_think'] = {
+            init: function() {
+                this.appendDummyInput().appendField("think");
+                this.appendValueInput("MESSAGE");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_thinkforsecs'] = {
+            init: function() {
+                this.appendDummyInput().appendField("think");
+                this.appendValueInput("MESSAGE");
+                this.appendDummyInput().appendField("for");
+                this.appendValueInput("SECS").setCheck("Number");
+                this.appendDummyInput().appendField("seconds");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_nextcostume'] = {
+            init: function() {
+                this.appendDummyInput().appendField("next costume");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_changeeffect'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("change")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["color", "COLOR"],
+                        ["fisheye", "FISHEYE"],
+                        ["whirl", "WHIRL"],
+                        ["pixelate", "PIXELATE"],
+                        ["mosaic", "MOSAIC"],
+                        ["brightness", "BRIGHTNESS"],
+                        ["ghost", "GHOST"]
+                    ]), "EFFECT")
+                    .appendField("effect by");
+                this.appendValueInput("CHANGE").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_seteffect'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("set")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["color", "COLOR"],
+                        ["fisheye", "FISHEYE"],
+                        ["whirl", "WHIRL"],
+                        ["pixelate", "PIXELATE"],
+                        ["mosaic", "MOSAIC"],
+                        ["brightness", "BRIGHTNESS"],
+                        ["ghost", "GHOST"]
+                    ]), "EFFECT")
+                    .appendField("effect to");
+                this.appendValueInput("VALUE").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_cleareffects'] = {
+            init: function() {
+                this.appendDummyInput().appendField("clear graphic effects");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_changesize'] = {
+            init: function() {
+                this.appendDummyInput().appendField("change size by");
+                this.appendValueInput("CHANGE").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_setsize'] = {
+            init: function() {
+                this.appendDummyInput().appendField("set size to");
+                this.appendValueInput("SIZE").setCheck("Number");
+                this.appendDummyInput().appendField("%");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_show'] = {
+            init: function() {
+                this.appendDummyInput().appendField("show");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_hide'] = {
+            init: function() {
+                this.appendDummyInput().appendField("hide");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_gotofrontback'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("go to")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["front", "front"],
+                        ["back", "back"]
+                    ]), "FRONT_BACK")
+                    .appendField("layer");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_goforwardbackwardlayers'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("go")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["forward", "forward"],
+                        ["backward", "backward"]
+                    ]), "FORWARD_BACKWARD");
+                this.appendValueInput("NUM").setCheck("Number");
+                this.appendDummyInput().appendField("layers");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_costumenumber'] = {
+            init: function() {
+                this.appendDummyInput().appendField("costume number");
+                this.setOutput(true, "Number");
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_costumenameat'] = {
+            init: function() {
+                this.appendDummyInput().appendField("costume name");
+                this.setOutput(true, "String");
+                this.setColour("#9966FF");
+            }
+        };
+        
+        Blockly.Blocks['looks_size'] = {
+            init: function() {
+                this.appendDummyInput().appendField("size");
+                this.setOutput(true, "Number");
+                this.setColour("#9966FF");
+            }
+        };
+
+        // SOUND BLOCKS
+        Blockly.Blocks['sound_play'] = {
+            init: function() {
+                this.appendDummyInput().appendField("start sound");
+                this.appendValueInput("SOUND");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#D65CD6");
+            }
+        };
+        
+        Blockly.Blocks['sound_playuntildone'] = {
+            init: function() {
+                this.appendDummyInput().appendField("play sound");
+                this.appendValueInput("SOUND");
+                this.appendDummyInput().appendField("until done");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#D65CD6");
+            }
+        };
+        
+        Blockly.Blocks['sound_stopallsounds'] = {
+            init: function() {
+                this.appendDummyInput().appendField("stop all sounds");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#D65CD6");
+            }
+        };
+        
+        Blockly.Blocks['sound_changevolume'] = {
+            init: function() {
+                this.appendDummyInput().appendField("change volume by");
+                this.appendValueInput("VOLUME").setCheck("Number");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#D65CD6");
+            }
+        };
+        
+        Blockly.Blocks['sound_setvolume'] = {
+            init: function() {
+                this.appendDummyInput().appendField("set volume to");
+                this.appendValueInput("VOLUME").setCheck("Number");
+                this.appendDummyInput().appendField("%");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#D65CD6");
+            }
+        };
+        
+        Blockly.Blocks['sound_volume'] = {
+            init: function() {
+                this.appendDummyInput().appendField("volume");
+                this.setOutput(true, "Number");
+                this.setColour("#D65CD6");
+            }
+        };
+
+        // EVENT BLOCKS (additional)
+        Blockly.Blocks['event_whenkeypressed'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("when")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["space", "space"],
+                        ["up arrow", "ArrowUp"],
+                        ["down arrow", "ArrowDown"],
+                        ["right arrow", "ArrowRight"],
+                        ["left arrow", "ArrowLeft"],
+                        ["a", "a"], ["b", "b"], ["c", "c"], ["d", "d"], ["w", "w"], ["s", "s"]
+                    ]), "KEY")
+                    .appendField("key pressed");
+                this.setNextStatement(true);
+                this.setColour("#FFBF00");
+                this.hat = 'cap';
+            }
+        };
+        
+        Blockly.Blocks['event_whenthisspriteclicked'] = {
+            init: function() {
+                this.appendDummyInput().appendField("when this sprite clicked");
+                this.setNextStatement(true);
+                this.setColour("#FFBF00");
+                this.hat = 'cap';
+            }
+        };
+        
+        Blockly.Blocks['event_whenbackdropswitches'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("when backdrop switches to")
+                    .appendField(new Blockly.FieldTextInput("backdrop1"), "BACKDROP");
+                this.setNextStatement(true);
+                this.setColour("#FFBF00");
+                this.hat = 'cap';
+            }
+        };
+        
+        Blockly.Blocks['event_whengreaterthan'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("when")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["loudness", "LOUDNESS"],
+                        ["timer", "TIMER"]
+                    ]), "WHENGREATERTHANMENU")
+                    .appendField(">");
+                this.appendValueInput("VALUE").setCheck("Number");
+                this.setInputsInline(true);
+                this.setNextStatement(true);
+                this.setColour("#FFBF00");
+                this.hat = 'cap';
+            }
+        };
+
+        // CONTROL BLOCKS (additional)
+        Blockly.Blocks['control_wait_until'] = {
+            init: function() {
+                this.appendValueInput("CONDITION")
+                    .setCheck("Boolean")
+                    .appendField("wait until");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#FFAB19");
+            }
+        };
+        
+        Blockly.Blocks['control_repeat_until'] = {
+            init: function() {
+                this.appendValueInput("CONDITION")
+                    .setCheck("Boolean")
+                    .appendField("repeat until");
+                this.appendStatementInput("DO");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#FFAB19");
+            }
+        };
+        
+        Blockly.Blocks['control_stop'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("stop")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["all", "all"],
+                        ["this script", "this script"],
+                        ["other scripts in sprite", "other scripts in sprite"]
+                    ]), "STOP_OPTION");
+                this.setPreviousStatement(true);
+                this.setColour("#FFAB19");
+            }
+        };
+        
+        Blockly.Blocks['control_start_as_clone'] = {
+            init: function() {
+                this.appendDummyInput().appendField("when I start as a clone");
+                this.setNextStatement(true);
+                this.setColour("#FFAB19");
+                this.hat = 'cap';
+            }
+        };
+        
+        Blockly.Blocks['control_create_clone'] = {
+            init: function() {
+                this.appendValueInput("CLONE_OPTION")
+                    .appendField("create clone of");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#FFAB19");
+            }
+        };
+        
+        Blockly.Blocks['control_delete_this_clone'] = {
+            init: function() {
+                this.appendDummyInput().appendField("delete this clone");
+                this.setPreviousStatement(true);
+                this.setColour("#FFAB19");
+            }
+        };
+
+        // SENSING BLOCKS
+        Blockly.Blocks['sensing_touchingobject'] = {
+            init: function() {
+                this.appendValueInput("TOUCHINGOBJECTMENU")
+                    .appendField("touching");
+                this.setOutput(true, "Boolean");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_touchingcolor'] = {
+            init: function() {
+                this.appendValueInput("COLOR")
+                    .setCheck("Colour")
+                    .appendField("touching color");
+                this.setOutput(true, "Boolean");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_distanceto'] = {
+            init: function() {
+                this.appendValueInput("DISTANCETOMENU")
+                    .appendField("distance to");
+                this.setOutput(true, "Number");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_askandwait'] = {
+            init: function() {
+                this.appendValueInput("QUESTION")
+                    .appendField("ask");
+                this.appendDummyInput().appendField("and wait");
+                this.setInputsInline(true);
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_answer'] = {
+            init: function() {
+                this.appendDummyInput().appendField("answer");
+                this.setOutput(true, "String");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_keypressed'] = {
+            init: function() {
+                this.appendValueInput("KEY_OPTION")
+                    .appendField("key");
+                this.appendDummyInput().appendField("pressed?");
+                this.setInputsInline(true);
+                this.setOutput(true, "Boolean");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_mousedown'] = {
+            init: function() {
+                this.appendDummyInput().appendField("mouse down?");
+                this.setOutput(true, "Boolean");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_mousex'] = {
+            init: function() {
+                this.appendDummyInput().appendField("mouse x");
+                this.setOutput(true, "Number");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_mousey'] = {
+            init: function() {
+                this.appendDummyInput().appendField("mouse y");
+                this.setOutput(true, "Number");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_loudness'] = {
+            init: function() {
+                this.appendDummyInput().appendField("loudness");
+                this.setOutput(true, "Number");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_timer'] = {
+            init: function() {
+                this.appendDummyInput().appendField("timer");
+                this.setOutput(true, "Number");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_resettimer'] = {
+            init: function() {
+                this.appendDummyInput().appendField("reset timer");
+                this.setPreviousStatement(true);
+                this.setNextStatement(true);
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_of'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField(new Blockly.FieldDropdown([
+                        ["x position", "x position"],
+                        ["y position", "y position"],
+                        ["direction", "direction"],
+                        ["costume #", "costume #"],
+                        ["size", "size"]
+                    ]), "PROPERTY");
+                this.appendValueInput("OBJECT")
+                    .appendField("of");
+                this.setInputsInline(true);
+                this.setOutput(true);
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_current'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField("current")
+                    .appendField(new Blockly.FieldDropdown([
+                        ["year", "YEAR"],
+                        ["month", "MONTH"],
+                        ["date", "DATE"],
+                        ["day of week", "DAYOFWEEK"],
+                        ["hour", "HOUR"],
+                        ["minute", "MINUTE"],
+                        ["second", "SECOND"]
+                    ]), "CURRENTMENU");
+                this.setOutput(true, "Number");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_dayssince2000'] = {
+            init: function() {
+                this.appendDummyInput().appendField("days since 2000");
+                this.setOutput(true, "Number");
+                this.setColour("#4CBFE6");
+            }
+        };
+        
+        Blockly.Blocks['sensing_username'] = {
+            init: function() {
+                this.appendDummyInput().appendField("username");
+                this.setOutput(true, "String");
+                this.setColour("#4CBFE6");
+            }
+        };
+
+        // OPERATOR BLOCKS
+        Blockly.Blocks['operator_add'] = {
+            init: function() {
+                this.appendValueInput("NUM1").setCheck("Number");
+                this.appendValueInput("NUM2").setCheck("Number").appendField("+");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_subtract'] = {
+            init: function() {
+                this.appendValueInput("NUM1").setCheck("Number");
+                this.appendValueInput("NUM2").setCheck("Number").appendField("-");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_multiply'] = {
+            init: function() {
+                this.appendValueInput("NUM1").setCheck("Number");
+                this.appendValueInput("NUM2").setCheck("Number").appendField("×");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_divide'] = {
+            init: function() {
+                this.appendValueInput("NUM1").setCheck("Number");
+                this.appendValueInput("NUM2").setCheck("Number").appendField("÷");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_random'] = {
+            init: function() {
+                this.appendDummyInput().appendField("pick random");
+                this.appendValueInput("FROM").setCheck("Number");
+                this.appendDummyInput().appendField("to");
+                this.appendValueInput("TO").setCheck("Number");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_gt'] = {
+            init: function() {
+                this.appendValueInput("OPERAND1");
+                this.appendValueInput("OPERAND2").appendField(">");
+                this.setInputsInline(true);
+                this.setOutput(true, "Boolean");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_lt'] = {
+            init: function() {
+                this.appendValueInput("OPERAND1");
+                this.appendValueInput("OPERAND2").appendField("<");
+                this.setInputsInline(true);
+                this.setOutput(true, "Boolean");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_equals'] = {
+            init: function() {
+                this.appendValueInput("OPERAND1");
+                this.appendValueInput("OPERAND2").appendField("=");
+                this.setInputsInline(true);
+                this.setOutput(true, "Boolean");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_and'] = {
+            init: function() {
+                this.appendValueInput("OPERAND1").setCheck("Boolean");
+                this.appendValueInput("OPERAND2").setCheck("Boolean").appendField("and");
+                this.setInputsInline(true);
+                this.setOutput(true, "Boolean");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_or'] = {
+            init: function() {
+                this.appendValueInput("OPERAND1").setCheck("Boolean");
+                this.appendValueInput("OPERAND2").setCheck("Boolean").appendField("or");
+                this.setInputsInline(true);
+                this.setOutput(true, "Boolean");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_not'] = {
+            init: function() {
+                this.appendValueInput("OPERAND").setCheck("Boolean").appendField("not");
+                this.setOutput(true, "Boolean");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_join'] = {
+            init: function() {
+                this.appendDummyInput().appendField("join");
+                this.appendValueInput("STRING1");
+                this.appendValueInput("STRING2");
+                this.setInputsInline(true);
+                this.setOutput(true, "String");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_letter_of'] = {
+            init: function() {
+                this.appendDummyInput().appendField("letter");
+                this.appendValueInput("LETTER").setCheck("Number");
+                this.appendDummyInput().appendField("of");
+                this.appendValueInput("STRING");
+                this.setInputsInline(true);
+                this.setOutput(true, "String");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_length'] = {
+            init: function() {
+                this.appendDummyInput().appendField("length of");
+                this.appendValueInput("STRING");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_contains'] = {
+            init: function() {
+                this.appendValueInput("STRING1");
+                this.appendDummyInput().appendField("contains");
+                this.appendValueInput("STRING2");
+                this.setInputsInline(true);
+                this.setOutput(true, "Boolean");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_mod'] = {
+            init: function() {
+                this.appendValueInput("NUM1").setCheck("Number");
+                this.appendValueInput("NUM2").setCheck("Number").appendField("mod");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_round'] = {
+            init: function() {
+                this.appendDummyInput().appendField("round");
+                this.appendValueInput("NUM").setCheck("Number");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
+        };
+        
+        Blockly.Blocks['operator_mathop'] = {
+            init: function() {
+                this.appendDummyInput()
+                    .appendField(new Blockly.FieldDropdown([
+                        ["abs", "abs"],
+                        ["floor", "floor"],
+                        ["ceiling", "ceiling"],
+                        ["sqrt", "sqrt"],
+                        ["sin", "sin"],
+                        ["cos", "cos"],
+                        ["tan", "tan"]
+                    ]), "OPERATOR")
+                    .appendField("of");
+                this.appendValueInput("NUM").setCheck("Number");
+                this.setInputsInline(true);
+                this.setOutput(true, "Number");
+                this.setColour("#40BF4A");
+            }
         };
 
         // Variable Blocks
